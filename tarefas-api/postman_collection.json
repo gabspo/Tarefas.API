@@ -1,0 +1,112 @@
+{
+  "info": {
+    "name": "Tarefas API - Gabriel Sponton Beretta (RU 4573718)",
+    "_postman_id": "c3b0e2e4-b3c2-4a4d-a4b1-9e1b07c8faaa",
+    "description": "Collection para testar a API de tarefas. Aluno: Gabriel Sponton Beretta — RU: 4573718. Inclui os 4 testes exigidos.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1) Criar tarefa (POST) — Evidência Inserção",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Registro do aluno - Evidência Inserção\",\n  \"dataEntrega\": \"2025-09-20\",\n  \"responsavel\": \"Gabriel Sponton Beretta - RU 4573718\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tarefas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tarefas"
+          ]
+        },
+        "description": "Cria uma tarefa contendo o nome, dataEntrega e responsavel. EVIDÊNCIA: resposta deve conter os mesmos dados e um id."
+      },
+      "response": []
+    },
+    {
+      "name": "2) Listar tarefas (GET) — Evidência Listagem",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/tarefas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tarefas"
+          ]
+        },
+        "description": "Lista todas as tarefas. EVIDÊNCIA: deve aparecer o registro com o seu nome e RU no campo responsavel."
+      },
+      "response": []
+    },
+    {
+      "name": "3) Atualizar tarefa (PUT) — Evidência Atualização",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Registro do aluno - Evidência de Atualização\",\n  \"dataEntrega\": \"2025-09-25\",\n  \"responsavel\": \"Gabriel Sponton Beretta - RU 4573718\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tarefas/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tarefas",
+            "1"
+          ]
+        },
+        "description": "Atualiza a tarefa de ID 1 (ajuste o ID conforme o retorno do POST). EVIDÊNCIA: resposta deve mostrar os novos dados mantendo nome e RU."
+      },
+      "response": []
+    },
+    {
+      "name": "4) Remover tarefa (DELETE) — Evidência Remoção",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8080/api/tarefas/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tarefas",
+            "1"
+          ]
+        },
+        "description": "Remove a tarefa de ID 1 (ajuste o ID conforme necessário). EVIDÊNCIA: resposta 204 No Content + confirmação via GET 404 ou listagem sem o item."
+      },
+      "response": []
+    }
+  ]
+}
